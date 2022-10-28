@@ -2,6 +2,7 @@ package com.cooksys.quiz_api.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,8 +21,10 @@ public class Quiz {
   private Long id;
 
   private String name;
+  
+ // private boolean deleted;
 
-  @OneToMany(mappedBy = "quiz")
+  @OneToMany(mappedBy = "quiz", cascade = {CascadeType.ALL})
   private List<Question> questions;
 
 }
